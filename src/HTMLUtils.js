@@ -1,12 +1,8 @@
-import TextStylesPropTypes from 'react-native/Libraries/Text/TextStylePropTypes';
-import ViewStylesPropTypes from 'react-native/Libraries/Components/View/ViewStylePropTypes';
-import ImageStylesPropTypes from 'react-native/Libraries/Image/ImageStylePropTypes';
-
 // Filter prop-types that are only applicable to <Text> and not <View>
 export let TextOnlyPropTypes = {};
-Object.keys(TextStylesPropTypes).forEach((prop) => {
-    if (!ViewStylesPropTypes[prop]) {
-        TextOnlyPropTypes[prop] = TextStylesPropTypes[prop];
+Object.keys(Text.propTypes).forEach((prop) => {
+    if (!View.propTypes[prop]) {
+        TextOnlyPropTypes[prop] = Text.propTypes[prop];
     }
 });
 
@@ -40,12 +36,12 @@ export const PERC_SUPPORTED_STYLES = [
 ];
 
 // We have to do some munging here as the objects are wrapped
-const RNTextStylePropTypes = Object.keys(TextStylesPropTypes)
-    .reduce((acc, k) => { acc[k] = TextStylesPropTypes[k]; return acc; }, {});
-const RNViewStylePropTypes = Object.keys(ViewStylesPropTypes)
-    .reduce((acc, k) => { acc[k] = ViewStylesPropTypes[k]; return acc; }, {});
-const RNImageStylePropTypes = Object.keys(ImageStylesPropTypes)
-    .reduce((acc, k) => { acc[k] = ImageStylesPropTypes[k]; return acc; }, {});
+const RNTextStylePropTypes = Object.keys(Text.propTypes)
+    .reduce((acc, k) => { acc[k] = Text.propTypes[k]; return acc; }, {});
+const RNViewStylePropTypes = Object.keys(View.propTypes)
+    .reduce((acc, k) => { acc[k] = View.propTypes[k]; return acc; }, {});
+const RNImageStylePropTypes = Object.keys(Image.propTypes)
+    .reduce((acc, k) => { acc[k] = Image.propTypes[k]; return acc; }, {});
 
 export const STYLESETS = Object.freeze({ VIEW: 'view', TEXT: 'text', IMAGE: 'image' });
 

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, ViewPropTypes, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { BLOCK_TAGS, TEXT_TAGS, MIXED_TAGS, IGNORED_TAGS, TEXT_TAGS_IGNORING_ASSOCIATION, STYLESETS, TextOnlyPropTypes } from './HTMLUtils';
 import { cssStringToRNStyle, _getElementClassStyles, cssStringToObject, cssObjectToString } from './HTMLStyles';
 import { generateDefaultBlockStyles, generateDefaultTextStyles } from './HTMLDefaultStyles';
@@ -23,7 +23,7 @@ export default class HTML extends PureComponent {
         uri: PropTypes.string,
         tagsStyles: PropTypes.object,
         classesStyles: PropTypes.object,
-        containerStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+        containerStyle: View.propTypes ? View.propTypes.style : View.propTypes.style,
         customWrapper: PropTypes.func,
         onLinkPress: PropTypes.func,
         onParsed: PropTypes.func,
